@@ -6,9 +6,9 @@ import { getWhatsappHref } from "../contact";
 const navItems = [
   { href: "/", label: "Inicio" },
   { href: "/nosotros", label: "Nosotros" },
-  { href: "/#productos", label: "Productos" },
-  { href: "/#galeria", label: "Galería" },
-  { href: "/#contacto", label: "Contacto" },
+  { href: "/productos", label: "Productos" },
+  { href: "/galeria", label: "Galería" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 const values = ["Responsabilidad social y ambiental", "Respeto", "Honestidad", "Calidad"];
@@ -30,7 +30,7 @@ export default function NosotrosPage() {
             <button aria-label="Cambiar idioma, español seleccionado" className="text-sm font-bold text-[var(--charcoal)] underline decoration-[var(--rivera-red)] decoration-2 underline-offset-4" type="button">ES</button>
             <span aria-hidden="true" className="text-[var(--line)]">/</span>
             <button aria-label="Cambiar a inglés" className="text-sm font-semibold text-[var(--muted)] transition-colors hover:text-[var(--rivera-red)]" type="button">EN</button>
-            <a className="button button-primary header-contact" href={getWhatsappHref("es")} rel="noopener noreferrer" target="_blank">WhatsApp</a>
+            <a className="button button-primary header-contact" href={getWhatsappHref("es")} rel="noopener noreferrer" target="_blank">Solicitar mango</a>
             <MobileNavigation />
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function NosotrosPage() {
               <p className="text-sm font-bold tracking-[.02em] text-[var(--rivera-red)]">Productos Rivera de Escuinapa</p>
               <h1 className="mt-5 max-w-[10ch] text-[clamp(3.1rem,6vw,5.7rem)] font-semibold leading-[.94] tracking-[-.06em] text-[var(--charcoal)]">Nuestra historia nace del mango.</h1>
             </div>
-            <p className="mt-8 max-w-[38ch] text-lg leading-8 text-[var(--muted)] lg:mt-12">Empresa mexicana productora y comercializadora de mango orgánico deshidratado.</p>
+            <p className="mt-8 max-w-[38ch] text-lg leading-8 text-[var(--muted)] lg:mt-12">Empresa 100% mexicana, productora y comercializadora de mango orgánico deshidratado.</p>
           </div>
           <figure className="relative aspect-[1.25/1] overflow-hidden bg-[var(--charcoal)] sm:aspect-[1.5/1] lg:aspect-auto lg:min-h-[550px]">
             <Image alt="Mango de Productos Rivera" className="object-cover" fill priority quality={88} sizes="(max-width: 1023px) 100vw, 56vw" src="/images/nosotros-origen.jpg" />
@@ -51,15 +51,41 @@ export default function NosotrosPage() {
           </figure>
         </section>
 
-        <section className="border-y border-[var(--line)] bg-white py-16 md:py-24">
+        <section className="border-y border-[var(--line)] bg-white py-14 md:py-20">
           <div className="page-container grid gap-10 lg:grid-cols-[.65fr_1.35fr] lg:gap-20">
             <p className="text-[clamp(4.25rem,9vw,8rem)] font-semibold leading-[.8] tracking-[-.08em] text-[var(--rivera-red)]">1970</p>
             <div className="max-w-3xl">
               <h2 className="text-[clamp(2.35rem,4.5vw,4.4rem)] font-semibold leading-[.98] tracking-[-.055em] text-[var(--charcoal)]">Una trayectoria que empieza en Escuinapa.</h2>
               <div className="mt-8 grid gap-5 text-base leading-7 text-[var(--muted)] md:grid-cols-2">
-                <p>Nuestra historia comienza en los años setenta. Los mangos de la región se enviaban frescos a Estados Unidos, donde eran vistos como una fruta exótica que conquistó por su sabor.</p>
-                <p>Con el tiempo, Productos Rivera siguió cosechando mango fresco de la región para deshidratarlo mediante un proceso perfeccionado a lo largo de los años.</p>
+                <p>Nuestra historia comenzó en los años setenta en Escuinapa, Sinaloa. En sus primeros años, los mangos de la región se comercializaban frescos.</p>
+                <p>Con los años se perfeccionó el proceso de deshidratación, partiendo de la selección de la mejor fruta desde el campo.</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-[var(--line)] bg-[var(--mineral)] py-16 md:py-24" aria-labelledby="trayectoria-title">
+          <div className="page-container">
+            <div className="max-w-3xl">
+              <h2 className="text-[clamp(2.35rem,4.5vw,4.4rem)] font-semibold leading-[.98] tracking-[-.055em] text-[var(--charcoal)]" id="trayectoria-title">De Escuinapa a nuevos mercados</h2>
+              <p className="mt-5 max-w-[58ch] text-base leading-7 text-[var(--muted)]">Una trayectoria construida desde Escuinapa y extendida a través de mercados, encuentros y relaciones comerciales.</p>
+            </div>
+            <div className="mt-10 grid border-t border-[var(--line)] lg:grid-cols-3">
+              <article className="py-8 lg:pr-10 lg:py-10">
+                <p className="text-[clamp(2rem,3.5vw,3.25rem)] font-semibold leading-none tracking-[-.06em] text-[var(--rivera-red)]">USA, Canadá, Europa</p>
+                <h3 className="mt-7 text-xl font-semibold tracking-[-.03em] text-[var(--charcoal)]">Mercados internacionales</h3>
+                <p className="mt-4 text-base leading-7 text-[var(--muted)]">A lo largo de su historia, Productos Rivera ha llevado sus productos a mercados como Estados Unidos, Canadá y Europa, incluyendo destinos como Francia e Inglaterra.</p>
+              </article>
+              <article className="border-t border-[var(--line)] py-8 lg:border-l lg:border-t-0 lg:px-10 lg:py-10">
+                <p className="text-[clamp(3rem,5vw,4.75rem)] font-semibold leading-none tracking-[-.07em] text-[var(--rivera-red)]">2005</p>
+                <h3 className="mt-7 text-xl font-semibold tracking-[-.03em] text-[var(--charcoal)]">Presencia internacional</h3>
+                <p className="mt-4 text-base leading-7 text-[var(--muted)]">Productos Rivera ha participado en exposiciones internacionales especializadas como Natural Products Expo West, Biofach y Anuga.</p>
+              </article>
+              <article className="border-t border-[var(--line)] py-8 lg:border-l lg:border-t-0 lg:pl-10 lg:py-10">
+                <p className="text-[clamp(2rem,3.5vw,3.25rem)] font-semibold leading-none tracking-[-.06em] text-[var(--rivera-red)]">Escuinapa</p>
+                <h3 className="mt-7 text-xl font-semibold tracking-[-.03em] text-[var(--charcoal)]">Directo desde Escuinapa</h3>
+                <p className="mt-4 text-base leading-7 text-[var(--muted)]">Además de trabajar históricamente con distribuidores en distintos puntos de México, Productos Rivera ha atendido pedidos directamente desde su planta en Escuinapa.</p>
+              </article>
             </div>
           </div>
         </section>
@@ -70,8 +96,8 @@ export default function NosotrosPage() {
           </figure>
           <div className="max-w-xl">
             <p className="text-sm font-bold tracking-[.02em] text-[var(--rivera-red)]">Origen</p>
-            <h2 className="mt-4 text-[clamp(2.35rem,4vw,4.2rem)] font-semibold leading-[.98] tracking-[-.05em] text-[var(--charcoal)]">Del campo de Escuinapa a un mango deshidratado.</h2>
-            <p className="mt-6 text-base leading-7 text-[var(--muted)]">La selección comienza desde el campo, con la materia prima que ofrece la región, para ofrecer un producto natural y 100% orgánico.</p>
+            <h2 className="mt-4 text-[clamp(2.35rem,4vw,4.2rem)] font-semibold leading-[.98] tracking-[-.05em] text-[var(--charcoal)]">La selección comienza desde el campo.</h2>
+            <p className="mt-6 text-base leading-7 text-[var(--muted)]">La materia prima de la región es el punto de partida para producir mango deshidratado orgánico.</p>
           </div>
         </section>
 
@@ -83,15 +109,15 @@ export default function NosotrosPage() {
             <div className="mt-10 grid gap-0 border-t border-[var(--line)] lg:grid-cols-2">
               <article className="py-8 lg:pr-12 lg:py-10">
                 <p className="text-sm font-bold text-[var(--rivera-red)]">Misión</p>
-                <p className="mt-4 max-w-[58ch] text-base leading-7 text-[var(--muted)]">Ser una empresa 100% orgánica, asegurando la calidad e inocuidad de sus productos al seguir lineamientos, normativas y estándares de certificación nacionales e internacionales.</p>
+                <p className="mt-4 max-w-[58ch] text-base leading-7 text-[var(--muted)]">Ser una empresa 100% orgánica que asegura la calidad e inocuidad de sus productos mediante lineamientos, normativas y estándares de certificación nacionales e internacionales, con materia prima de la región para satisfacer las exigencias de sus clientes.</p>
               </article>
               <article className="border-t border-[var(--line)] py-8 lg:border-l lg:border-t-0 lg:py-10 lg:pl-12">
                 <p className="text-sm font-bold text-[var(--rivera-red)]">Visión</p>
-                <p className="mt-4 max-w-[58ch] text-base leading-7 text-[var(--muted)]">Ser reconocida nacional e internacionalmente como una empresa deshidratadora de mango por el sabor, la calidad y la inocuidad de sus productos y procesos de producción.</p>
+                <p className="mt-4 max-w-[58ch] text-base leading-7 text-[var(--muted)]">Ser reconocida nacional e internacionalmente como la empresa deshidratadora de mango con mayor prestigio por el sabor, la calidad y la inocuidad de sus productos y procesos, al desarrollar nuevos productos y generar empleos en la zona de influencia durante todo el año.</p>
               </article>
             </div>
             <div className="grid border-t border-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
-              {values.map((value, index) => <p className={`py-5 text-base font-semibold tracking-[-.02em] text-[var(--charcoal)] ${index > 0 ? "border-t border-[var(--line)] sm:border-l sm:border-t-0" : ""}`} key={value}>{value}</p>)}
+              {values.map((value, index) => <p className={`py-4 text-sm font-semibold leading-5 tracking-[-.02em] text-[var(--charcoal)] ${index > 0 ? "border-t border-[var(--line)] sm:border-l sm:border-t-0 sm:pl-5" : ""}`} key={value}>{value}</p>)}
             </div>
           </div>
         </section>
@@ -99,8 +125,8 @@ export default function NosotrosPage() {
         <section className="page-container grid gap-8 py-16 md:py-24 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-16">
           <div className="max-w-xl">
             <p className="text-sm font-bold tracking-[.02em] text-[var(--rivera-red)]">Del mango al producto</p>
-            <h2 className="mt-4 text-[clamp(2.35rem,4vw,4.2rem)] font-semibold leading-[.98] tracking-[-.05em] text-[var(--charcoal)]">Selección desde el campo.</h2>
-            <p className="mt-6 text-base leading-7 text-[var(--muted)]">Productos Rivera describe una selección de la fruta desde el campo y un proceso de deshidratación que se ha perfeccionado con los años.</p>
+            <h2 className="mt-4 text-[clamp(2.35rem,4vw,4.2rem)] font-semibold leading-[.98] tracking-[-.05em] text-[var(--charcoal)]">Del mango fresco al deshidratado.</h2>
+            <p className="mt-6 text-base leading-7 text-[var(--muted)]">A partir del mango fresco de la región, el proceso de deshidratación se ha perfeccionado con los años.</p>
           </div>
           <figure className="relative aspect-[1.5/1] overflow-hidden bg-[var(--charcoal)]">
             <Image alt="Proceso de presentación de mango Productos Rivera" className="object-cover" fill quality={86} sizes="(max-width: 1023px) 100vw, 55vw" src="/images/nosotros-proceso.jpg" />
@@ -114,9 +140,9 @@ export default function NosotrosPage() {
               <h2 className="mt-4 max-w-[10ch] text-[clamp(2.4rem,4.5vw,4.6rem)] font-semibold leading-[.98] tracking-[-.055em]">Referencias de calidad.</h2>
             </div>
             <div className="border-t border-white/25">
-              <Certification description="Programa de auditoría reconocido por la GFSI, orientado a criterios de buenas prácticas de manufactura y producción segura de alimentos." name="PrimusGFS" />
-              <Certification description="Instituto acreditado por USDA para certificar cultivos, productos y manufactura orgánica." name="OTCO · Oregon Tilth Certified Organic" />
-              <Certification description="Sistema de control de calidad de alimentos según normas kosher, con supervisión en planta para ciertos lotes." name="Kosher" />
+              <Certification description="Estándares de inocuidad y buenas prácticas dentro de la producción de alimentos." name="PrimusGFS" />
+              <Certification description="Certificación orgánica con inspección de huertas e instalaciones bajo estándares aplicables a producción orgánica." name="Oregon Tilth Certified Organic / OTCO" />
+              <Certification description="Certificación y supervisión de procesos conforme a los requisitos de producción kosher." name="Kosher" />
             </div>
           </div>
         </section>
@@ -126,9 +152,9 @@ export default function NosotrosPage() {
             <div>
               <p className="text-sm font-bold tracking-[.02em] text-[var(--rivera-red)]">Productos Rivera</p>
               <h2 className="mt-4 max-w-[14ch] text-[clamp(2.45rem,5vw,4.8rem)] font-semibold leading-[.97] tracking-[-.06em] text-[var(--charcoal)]">Conoce nuestros productos.</h2>
-              <p className="mt-5 max-w-[42ch] text-base leading-7 text-[var(--muted)]">Solicita información sobre productos y presentaciones por WhatsApp.</p>
+              <p className="mt-5 max-w-[42ch] text-base leading-7 text-[var(--muted)]">Solicita información sobre productos, presentaciones o compras por mayoreo.</p>
             </div>
-            <a className="button button-primary mt-8 md:mt-0" href={getWhatsappHref("es")} rel="noopener noreferrer" target="_blank">Escríbenos por WhatsApp</a>
+            <a className="button button-primary mt-8 md:mt-0" href="/productos">Ver productos</a>
           </div>
         </section>
       </main>

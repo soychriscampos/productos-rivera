@@ -7,9 +7,9 @@ import { getWhatsappHref } from "../contact";
 const navigation = [
   { href: "/", label: "Inicio" },
   { href: "/nosotros", label: "Nosotros" },
-  { href: "/#productos", label: "Productos" },
-  { href: "/#galeria", label: "Galería" },
-  { href: "/#contacto", label: "Contacto" },
+  { href: "/productos", label: "Productos" },
+  { href: "/galeria", label: "Galería" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 export function MobileNavigation() {
@@ -30,7 +30,7 @@ export function MobileNavigation() {
       </button>
       <div className={isOpen ? "mobile-panel is-open" : "mobile-panel"} id="mobile-navigation">
         <nav aria-label="Navegación principal móvil"><ul>{navigation.map((item) => <li key={item.href}><Link href={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link></li>)}</ul></nav>
-        <a className="button button-primary" href={getWhatsappHref("es")} onClick={() => setIsOpen(false)} rel="noopener noreferrer" target="_blank">Contactar por WhatsApp</a>
+        <a className="button button-primary" href={getWhatsappHref("es")} onClick={() => setIsOpen(false)} rel="noopener noreferrer" target="_blank">Solicitar mango</a>
       </div>
     </div>
   );

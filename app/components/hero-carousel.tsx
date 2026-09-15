@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getWhatsappHref } from "../contact";
 
 const slides = [
@@ -13,23 +13,31 @@ const slides = [
     title: "Una obra de arte en cada bocado.",
   },
   {
-    alt: "Detalle de mango deshidratado natural Productos Rivera",
-    eyebrow: "Mango deshidratado natural",
-    image: "/images/mango-galeria-fruta.jpg",
+    alt: "Mango deshidratado enchilado Productos Rivera",
+    eyebrow: "El favorito de muchos por su deliciosa mezcla de sabores",
+    image: "/images/hero-mango-chile.jpg",
     imageClass: "hero-carousel-image-fruta",
-    title: "Una deliciosa mezcla de sabores.",
+    title: "Mango enchilado.",
   },
   {
     alt: "Presentación de mango deshidratado Productos Rivera",
     eyebrow: "Producto 100% mexicano y certificado orgánico",
     image: "/images/mango-producto-origen.jpg",
     imageClass: "hero-carousel-image-origen",
-    title: "Mexicano y certificado orgánico.",
+    title: "La mejor selección de mangos.",
   },
 ];
 
 export function HeroCarousel() {
   const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const interval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length);
+    }, 5000);
+    return () => window.clearInterval(interval);
+  }, []);
 
   return (
     <section aria-label="Destacados Productos Rivera" className="hero-carousel relative isolate min-h-[calc(100dvh-72px)] overflow-hidden bg-[var(--charcoal)] text-white" id="inicio">
@@ -41,9 +49,9 @@ export function HeroCarousel() {
 
       <div className="relative z-10 page-container flex min-h-[calc(100dvh-72px)] flex-col justify-end pb-12 pt-28 md:pb-16 lg:pb-20">
         <div className="max-w-xl">
-          <p className="text-sm font-bold tracking-[.02em] text-[#f4c9c0]">{slides[activeSlide].eyebrow}</p>
-          <h1 className="mt-4 max-w-[16ch] text-[clamp(2.8rem,6vw,5.4rem)] font-semibold leading-[.94] tracking-[-.05em] text-white">{slides[activeSlide].title}</h1>
-          <a className="button mt-8 border border-white bg-white text-[var(--charcoal)] hover:bg-[#f1eee8]" href={getWhatsappHref("es")} rel="noopener noreferrer" target="_blank">¡Haz tu pedido!</a>
+          <p className="hero-carousel-text text-sm font-bold tracking-[.02em] text-[#f4c9c0]">{slides[activeSlide].eyebrow}</p>
+          <h1 className="hero-carousel-text mt-4 max-w-[16ch] text-[clamp(2.8rem,6vw,5.4rem)] font-semibold leading-[.94] tracking-[-.05em] text-white">{slides[activeSlide].title}</h1>
+          <a className="button button-primary mt-8" href={getWhatsappHref("es")} rel="noopener noreferrer" target="_blank">¡Haz tu pedido!</a>
         </div>
 
         <div className="mt-10 flex items-center gap-3" role="group" aria-label="Seleccionar destacado">

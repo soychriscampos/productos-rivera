@@ -7,24 +7,24 @@ import { MobileNavigation } from "./components/mobile-navigation";
 const navItems = [
   { href: "/", label: "Inicio" },
   { href: "/nosotros", label: "Nosotros" },
-  { href: "#productos", label: "Productos" },
-  { href: "#galeria", label: "Galería" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/productos", label: "Productos" },
+  { href: "/galeria", label: "Galería" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 const products = [
-  { title: "Mango natural", description: "Mango deshidratado natural en presentaciones de 40 g y 250 g." },
-  { title: "Mango con chile", description: "Mango deshidratado con chile en presentaciones de 40 g y 250 g." },
-  { title: "Empaques disponibles", description: "Presentaciones biodegradables y de celofán según la variedad." },
+  { title: "Mango natural", description: "La mejor selección de mangos, en su sabor más puro." },
+  { title: "Mango con chile", description: "El favorito de muchos por su deliciosa mezcla de sabores." },
+  { title: "Desde el campo", description: "Seleccionamos la fruta para convertirla en mango deshidratado orgánico." },
 ];
 
 const galleryImages = [
   { src: "/images/mango-producto-origen.jpg", alt: "Mango deshidratado Productos Rivera junto a mango fresco", className: "md:row-span-2" },
   { src: "/images/mango-galeria-fruta.jpg", alt: "Detalle de mango deshidratado natural Productos Rivera", className: "" },
   { src: "/images/mango-galeria-mesa.jpg", alt: "Presentación de mango deshidratado sobre mesa de madera", className: "" },
-  { src: "/images/mango-natural-cuenco.jpg", alt: "Mango deshidratado natural en un cuenco de madera", className: "md:col-span-2" },
+  { src: "/images/hero-mango-surtido.jpg", alt: "Mango deshidratado Productos Rivera", className: "md:col-span-2" },
   { src: "/images/mango-presentacion-circular.jpg", alt: "Composición de mango deshidratado Productos Rivera", className: "" },
-  { src: "/images/mango-detalle-circular.jpg", alt: "Mango fresco y mango deshidratado en composición cenital", className: "" },
+  { src: "/images/mango-detalle-circular.jpg", alt: "Mango fresco y mango deshidratado en composición cenital", className: "md:col-span-2" },
 ];
 
 export default function Home() {
@@ -37,14 +37,14 @@ export default function Home() {
           </Link>
           <nav aria-label="Navegación principal" className="hidden lg:block">
             <ul className="flex items-center gap-7 text-sm font-semibold text-[var(--charcoal)]">
-              {navItems.map((item) => <li key={item.href}><Link className="transition-colors hover:text-[var(--rivera-red)]" href={item.href}>{item.label}</Link></li>)}
+              {navItems.map((item) => <li key={item.href}><Link aria-current={item.href === "/" ? "page" : undefined} className="transition-colors hover:text-[var(--rivera-red)]" href={item.href}>{item.label}</Link></li>)}
             </ul>
           </nav>
           <div className="flex items-center gap-3 sm:gap-4">
             <button aria-label="Cambiar idioma, español seleccionado" className="text-sm font-bold text-[var(--charcoal)] underline decoration-[var(--rivera-red)] decoration-2 underline-offset-4" type="button">ES</button>
             <span aria-hidden="true" className="text-[var(--line)]">/</span>
             <button aria-label="Cambiar a inglés" className="text-sm font-semibold text-[var(--muted)] transition-colors hover:text-[var(--rivera-red)]" type="button">EN</button>
-            <a className="button button-primary header-contact" href={getWhatsappHref("es")} rel="noopener noreferrer" target="_blank">WhatsApp</a>
+            <a className="button button-primary header-contact" href={getWhatsappHref("es")} rel="noopener noreferrer" target="_blank">Solicitar mango</a>
             <MobileNavigation />
           </div>
         </div>
@@ -57,12 +57,12 @@ export default function Home() {
           <div className="max-w-4xl">
             <p className="text-sm font-bold tracking-[.02em] text-[var(--rivera-red)]">Productos Rivera de Escuinapa</p>
             <h2 className="mt-5 text-[clamp(2.65rem,5vw,5rem)] font-semibold leading-[.97] tracking-[-.05em] text-[var(--charcoal)]">La mejor selección de mangos.</h2>
-            <p className="mt-7 max-w-3xl text-[clamp(1.15rem,2vw,1.55rem)] leading-9 text-[var(--muted)]">Nuestra historia comienza en los años setenta en Escuinapa, Sinaloa. Desde entonces, cosechamos mangos de la región y los transformamos en mango deshidratado.</p>
+            <p className="mt-7 max-w-3xl text-[clamp(1.15rem,2vw,1.55rem)] leading-9 text-[var(--muted)]">Nuestra historia comenzó en los años setenta en Escuinapa, Sinaloa. Seleccionamos la fruta desde el campo y trabajamos para convertirla en mango deshidratado orgánico.</p>
           </div>
           <div className="mt-12 grid gap-6 border-t border-[var(--line)] pt-6 text-sm leading-6 text-[var(--muted)] md:grid-cols-3">
-            <p><strong className="font-bold text-[var(--charcoal)]">55 años de calidad y sabor</strong> nos respaldan.</p>
-            <p>Empresa mexicana productora y comercializadora de mango orgánico deshidratado.</p>
-            <p>Origen, selección de fruta y producto terminado, reunidos en una misma historia.</p>
+            <p><strong className="font-bold text-[var(--charcoal)]">Desde 1970</strong>, una historia nacida en Escuinapa.</p>
+            <p>Empresa 100% mexicana, productora y comercializadora de mango orgánico deshidratado.</p>
+            <p>La mejor fruta de la región, seleccionada desde el campo.</p>
           </div>
         </section>
 
@@ -94,7 +94,7 @@ export default function Home() {
             </div>
             <div className="border-t border-[var(--line)]">
               <Certification name="PrimusGFS" />
-              <Certification name="OTCO, Oregon Tilth Certified Organic" />
+              <Certification name="Oregon Tilth Certified Organic / OTCO" />
               <Certification name="Kosher" />
             </div>
           </div>
@@ -106,7 +106,7 @@ export default function Home() {
               <p className="text-sm font-bold tracking-[.02em] text-[var(--rivera-red)]">Galería</p>
               <h2 className="mt-4 text-[clamp(2.35rem,4vw,4rem)] font-semibold leading-[1] tracking-[-.045em] text-[var(--charcoal)]">Mango, oficio y sabor.</h2>
             </div>
-            <div className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-3 md:auto-rows-[260px] md:grid-cols-4 md:gap-4">
+            <div className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-3 md:auto-rows-[260px] md:grid-cols-3 md:gap-4">
               {galleryImages.map((image) => (
                 <figure className={`relative overflow-hidden bg-[var(--charcoal)] ${image.className}`} key={image.src}>
                   <Image alt={image.alt} className="object-cover" fill quality={82} sizes="(min-width: 1280px) 320px, (min-width: 768px) 25vw, 50vw" src={image.src} />
