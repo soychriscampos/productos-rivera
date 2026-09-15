@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 import { getWhatsappHref } from "../contact";
 
 const navigation = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#productos", label: "Productos" },
-  { href: "#galeria", label: "Galería" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/", label: "Inicio" },
+  { href: "/nosotros", label: "Nosotros" },
+  { href: "/#productos", label: "Productos" },
+  { href: "/#galeria", label: "Galería" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export function MobileNavigation() {

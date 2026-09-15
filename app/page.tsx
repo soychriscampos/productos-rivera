@@ -5,8 +5,8 @@ import { HeroCarousel } from "./components/hero-carousel";
 import { MobileNavigation } from "./components/mobile-navigation";
 
 const navItems = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#nosotros", label: "Nosotros" },
+  { href: "/", label: "Inicio" },
+  { href: "/nosotros", label: "Nosotros" },
   { href: "#productos", label: "Productos" },
   { href: "#galeria", label: "Galería" },
   { href: "#contacto", label: "Contacto" },
@@ -32,7 +32,7 @@ export default function Home() {
     <div className="min-h-full overflow-hidden bg-[var(--mineral)]">
       <header className="relative z-30 border-b border-[var(--line)] bg-[var(--mineral)]">
         <div className="page-container flex h-[72px] items-center justify-between gap-5">
-          <Link aria-label="Productos Rivera, inicio" className="shrink-0" href="#inicio">
+          <Link aria-label="Productos Rivera, inicio" className="shrink-0" href="/">
             <Image alt="Productos Rivera" className="h-auto w-[124px] sm:w-[142px]" height={205} priority src="/images/productos-rivera-logo.png" width={463} />
           </Link>
           <nav aria-label="Navegación principal" className="hidden lg:block">
