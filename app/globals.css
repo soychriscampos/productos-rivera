@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root { --rivera-red:#c92e2e; --rivera-red-dark:#a4242b; --rivera-green:#69745d; --rivera-green-deep:#2a2926; --charcoal:#242321; --mineral:#f6f5f2; --surface:#fff; --ink:#242321; --muted:#625e58; --line:#dcd8d1; --radius:12px; --container:1280px; --background:var(--mineral); --foreground:var(--ink); }
+@theme inline { --color-background:var(--background); --color-foreground:var(--foreground); --font-sans:var(--font-montserrat); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--background); color:var(--foreground); font-family:var(--font-montserrat), Arial, sans-serif; }
+::selection { background:#f2c5c5; color:var(--ink); }
+a, button { -webkit-tap-highlight-color:transparent; }
+a:focus-visible, button:focus-visible { outline:3px solid var(--rivera-red); outline-offset:4px; }
+.page-container { width:min(100% - 40px, var(--container)); margin-inline:auto; }
+.button { align-items:center; border-radius:999px; display:inline-flex; font-size:.875rem; font-weight:700; justify-content:center; line-height:1; min-height:48px; padding:0 1.25rem; transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease,transform 180ms ease; white-space:nowrap; }
+.button:active { transform:translateY(1px); }
+.button-primary { background:var(--rivera-red); color:#fff; }
+.button-primary:hover { background:var(--rivera-red-dark); }
+.button-secondary { border:1px solid var(--charcoal); color:var(--charcoal); }
+.button-secondary:hover { background:var(--charcoal); color:#fff; }
+.header-contact { display:none; }
+.menu-trigger { align-items:center; background:transparent; border:0; display:inline-flex; height:44px; justify-content:center; width:44px; }
+.menu-lines, .menu-lines span { display:block; }
+.menu-lines { height:14px; position:relative; width:22px; }
+.menu-lines span { background:var(--charcoal); height:1.5px; left:0; position:absolute; transition:transform 180ms ease,top 180ms ease; width:22px; }
+.menu-lines span:first-child { top:3px; }.menu-lines span:last-child { top:10px; }.menu-lines.is-open span:first-child { top:6px; transform:rotate(45deg); }.menu-lines.is-open span:last-child { top:6px; transform:rotate(-45deg); }
+.mobile-panel { background:var(--mineral); display:flex; flex-direction:column; inset:72px 0 0; justify-content:space-between; opacity:0; padding:2rem 20px 2.5rem; pointer-events:none; position:fixed; transform:translateY(-8px); transition:opacity 180ms ease,transform 180ms ease; visibility:hidden; z-index:20; }
+.mobile-panel.is-open { opacity:1; pointer-events:auto; transform:translateY(0); visibility:visible; }.mobile-panel ul { display:grid; gap:.25rem; }.mobile-panel a:not(.button) { color:var(--charcoal); display:block; font-size:clamp(2rem,10vw,3rem); font-weight:600; letter-spacing:-.06em; padding-block:.3rem; }.mobile-panel .button { width:100%; }
+.hero-carousel::after { background:linear-gradient(90deg, rgba(19,18,16,.30) 0%, rgba(19,18,16,.08) 45%, transparent 72%); content:""; inset:0; pointer-events:none; position:absolute; z-index:1; }
+.hero-carousel-image-natural { object-position:52% center; }
+.hero-carousel-image-fruta { object-position:52% center; }
+.hero-carousel-image-origen { object-position:50% 44%; }
+.hero-carousel-control { border-bottom:1px solid rgba(255,255,255,.45); color:rgba(255,255,255,.7); font-size:.75rem; font-weight:700; min-width:2.5rem; padding:0 0 .45rem; text-align:left; transition:border-color 180ms ease,color 180ms ease; }
+.hero-carousel-control.is-active, .hero-carousel-control:hover { border-color:#fff; color:#fff; }
+@media (prefers-reduced-motion:reduce) { *, *::before, *::after { scroll-behavior:auto !important; transition-duration:.01ms !important; } }
+@media (max-width:767px) {
+  .hero-carousel-image-natural { object-position:26% center; }
+  .hero-carousel-image-fruta { object-position:46% center; }
+  .hero-carousel-image-origen { object-position:50% 40%; }
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+@media (min-width:640px) { .page-container { width:min(100% - 64px, var(--container)); } }
+@media (min-width:1024px) { .header-contact { display:inline-flex; } }
